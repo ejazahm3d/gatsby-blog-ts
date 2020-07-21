@@ -4516,11 +4516,6 @@ export type AllBlogsQuery = { allContentfulBlogPost: { edges: Array<{ node: (
         & { featuredImage?: Maybe<{ fluid?: Maybe<GatsbyContentfulFluidFragment> }>, excerpt?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'excerpt'>> }> }
       ) }> } };
 
-export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_3_Query = { site?: Maybe<Pick<Site, 'buildTime'>> };
-
 export type SingleBlogPostQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;

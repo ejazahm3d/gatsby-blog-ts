@@ -2,13 +2,14 @@ import React from "react"
 import { Link, PageProps } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import Hero from "../components/blocks/Hero"
 
 const IndexPage = (props: PageProps) => (
     <Layout>
         <SEO title="Home" />
-        <div className="container">
+        <Hero />
+        <div className="container mt-4">
             <div className="columns">
                 <div className="column">
                     <h2 className="title is-2">Level 2 heading</h2>
@@ -20,8 +21,7 @@ const IndexPage = (props: PageProps) => (
                 </div>
             </div>
         </div>
-        <Link to="/blog/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+        <Link to="/blog/">Go to Blog</Link> <br />
     </Layout>
 )
 
