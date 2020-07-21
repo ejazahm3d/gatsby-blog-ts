@@ -41,7 +41,11 @@ const Blog = () => {
             <section className="hero is-medium is-success">
                 <div className="hero-body">
                     <div className="container">
-                        <h1 className="title is-1">Latest Blogs</h1>
+                        <h1 className="title">Latest Blogs</h1>
+                        <h2 className="subtitle">
+                            “Think before you speak. Read before you think.” –
+                            Fran Lebowitz
+                        </h2>
                     </div>
                 </div>
             </section>

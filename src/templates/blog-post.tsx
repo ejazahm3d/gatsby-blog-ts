@@ -42,10 +42,14 @@ const BlogPost: React.FC<Props> = ({ data }) => {
 
             <div className="hero is-info is-medium">
                 <div className="hero-body">
-                    <h1 className="title">{data?.contentfulBlogPost?.title}</h1>
-                    <span className="subtitle">
-                        Posted on {data?.contentfulBlogPost?.publishedDate}
-                    </span>
+                    <div className="container">
+                        <h1 className="title">
+                            {data?.contentfulBlogPost?.title}
+                        </h1>
+                        <h2 className="subtitle">
+                            Posted on {data?.contentfulBlogPost?.publishedDate}
+                        </h2>
+                    </div>
                 </div>
             </div>
             <section className="container mx-6 my-6">
