@@ -20,6 +20,7 @@ module.exports = {
         `gatsby-transformer-sharp`,
         `gatsby-transformer-remark`,
         `gatsby-plugin-graphql-codegen`,
+        `gatsby-plugin-sass`,
         {
             resolve: `gatsby-source-contentful`,
             options: {
@@ -29,6 +30,7 @@ module.exports = {
             forceFullSync: true,
         },
         `gatsby-plugin-sharp`,
+
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
