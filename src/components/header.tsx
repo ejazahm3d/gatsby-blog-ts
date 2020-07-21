@@ -46,10 +46,22 @@ const Header = ({ siteTitle }: { siteTitle: string }) => {
                     <div className="navbar-end">
                         <div className="navbar-item">
                             <div className="buttons">
-                                <a className="button is-primary">
-                                    <strong>Sign up</strong>
+                                <a
+                                    href="https://github.com/ejazahm3d"
+                                    className="button is-primary"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <strong>Github</strong>
                                 </a>
-                                <a className="button is-light">Log in</a>
+                                <a
+                                    href="https://linkedin.com/in/ejazahm3d"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="button is-light"
+                                >
+                                    LinkedIn
+                                </a>
                             </div>
                         </div>
                     </div>
