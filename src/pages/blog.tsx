@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
+import Img, { FluidObject } from "gatsby-image"
 
 import { AllBlogsQuery } from "../../graphql-types"
 
@@ -55,7 +55,8 @@ const Blog = () => {
                                 <Img
                                     className="featured"
                                     fluid={
-                                        edge?.node?.featuredImage?.fluid as any
+                                        edge?.node?.featuredImage
+                                            ?.fluid!! as FluidObject
                                     }
                                     alt={edge?.node?.title!!}
                                 />
