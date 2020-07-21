@@ -5,7 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Img, { FluidObject } from "gatsby-image"
 
-import { AllBlogsQuery } from "../../graphql-types"
+import { AllBlogsQuery, ContentfulBlogPost } from "../../graphql-types"
+import BlogItem from "../components/blocks/blogs/BlogItem"
 
 const blogDataQuery = graphql`
     query allBlogs {
@@ -37,45 +38,22 @@ const Blog = () => {
     return (
         <Layout>
             <SEO title="Blog" />
-
-            <Link to="/">Go back to the homepage</Link>
-            <ul>
+            <section className="hero is-medium is-success">
+                <div className="hero-body">
+                    <div className="container">
+                        <h1 className="title is-1">Latest Blogs</h1>
+                    </div>
+                </div>
+            </section>
+            <section className="container px-6 my-6 ">
                 {data.allContentfulBlogPost.edges.map(edge => {
                     return (
-                        <li className="post" key={edge.node.id}>
-                            <h2>
-                                <Link to={`/blog/${edge.node.slug}/`}>
-                                    {edge.node.title}
-                                </Link>
-                            </h2>
-                            <div className="meta">
-                                <span>Posted on {edge.node.publishedDate}</span>
-                            </div>
-                            {edge.node.featuredImage && (
-                                <Img
-                                    className="featured"
-                                    fluid={
-                                        edge?.node?.featuredImage
-                                            ?.fluid!! as FluidObject
-                                    }
-                                    alt={edge?.node?.title!!}
-                                />
-                            )}
-                            <p className="excerpt">
-                                {
-                                    edge?.node?.excerpt?.childMarkdownRemark
-                                        ?.excerpt
-                                }
-                            </p>
-                            <div className="button">
-                                <Link to={`/blog/${edge.node.slug}/`}>
-                                    Read More
-                                </Link>
-                            </div>
-                        </li>
+                        <section className="mx-6 my-6" key={edge.node.id}>
+                            <BlogItem item={edge.node as ContentfulBlogPost} />
+                        </section>
                     )
                 })}
-            </ul>
+            </section>
         </Layout>
     )
 }
