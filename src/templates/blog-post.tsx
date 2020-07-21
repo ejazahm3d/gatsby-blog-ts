@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql, Link, PageProps } from "gatsby"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import SEO from "../components/seo"
 import Img, { FluidObject } from "gatsby-image"
@@ -15,6 +16,9 @@ export const blogPost = graphql`
                 fluid(maxWidth: 750) {
                     ...GatsbyContentfulFluid
                 }
+            }
+            body {
+                json
             }
         }
     }
@@ -42,6 +46,7 @@ const BlogPost: React.FC<Props> = ({ data }) => {
                         alt={data.contentfulBlogPost.title!!}
                     />
                 )}
+                {documentToReactComponents(data.contentfulBlogPost.body!!.json)}
             </div>
         </Layout>
     )

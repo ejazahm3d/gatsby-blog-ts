@@ -4528,7 +4528,7 @@ export type SingleBlogPostQueryVariables = Exact<{
 
 export type SingleBlogPostQuery = { contentfulBlogPost?: Maybe<(
     Pick<ContentfulBlogPost, 'title' | 'publishedDate'>
-    & { featuredImage?: Maybe<{ fluid?: Maybe<GatsbyContentfulFluidFragment> }> }
+    & { featuredImage?: Maybe<{ fluid?: Maybe<GatsbyContentfulFluidFragment> }>, body?: Maybe<Pick<ContentfulBlogPostBodyRichTextNode, 'json'>> }
   )> };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
