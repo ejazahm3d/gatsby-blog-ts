@@ -1,3 +1,7 @@
+require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
     siteMetadata: {
         title: `Gatsby Blog Site`,
@@ -14,6 +18,15 @@ module.exports = {
             },
         },
         `gatsby-transformer-sharp`,
+        `gatsby-transformer-remark`,
+        `gatsby-plugin-graphql-codegen`,
+        {
+            resolve: `gatsby-source-contentful`,
+            options: {
+                spaceId: process.env.CONTENTFUL_SPACE_ID,
+                accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+            },
+        },
         `gatsby-plugin-sharp`,
         {
             resolve: `gatsby-plugin-manifest`,
