@@ -27,6 +27,15 @@ export const blogPost = graphql`
 interface Props extends PageProps<{ contentfulBlogPost: ContentfulBlogPost }> {}
 
 const BlogPost: React.FC<Props> = ({ data }) => {
+    const options = {
+        renderNode: {
+            "embedded-asset-block": (node: any) => {
+                const alt = node.data.target.fields.title["en-US"]
+                const url = node.data.target.fields.file["en-US"].url
+                return <img alt={alt} src={url} />
+            },
+        },
+    }
     return (
         <Layout>
             <SEO title="Blot Post" />
@@ -46,7 +55,10 @@ const BlogPost: React.FC<Props> = ({ data }) => {
                         alt={data.contentfulBlogPost.title!!}
                     />
                 )}
-                {documentToReactComponents(data.contentfulBlogPost.body!!.json)}
+                {documentToReactComponents(
+                    data.contentfulBlogPost.body!!.json,
+                    options
+                )}
             </div>
         </Layout>
     )
