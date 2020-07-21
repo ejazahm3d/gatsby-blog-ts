@@ -10,10 +10,9 @@ const IndexPage = (props: PageProps) => (
     <Layout>
         <SEO title="Home" />
         <Hero />
-        <div className="container mt-4">
+        <div className="container mt-4 mb-6">
             <TopFiveBlogs />
         </div>
-        <Link to="/blog/">Go to Blog</Link> <br />
     </Layout>
 )
 

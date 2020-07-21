@@ -1,6 +1,7 @@
 import React from "react"
 import { ContentfulBlogPost } from "../../../../../graphql-types"
 import Img, { FluidObject } from "gatsby-image"
+import { Link } from "gatsby"
 
 interface Props {
     item: ContentfulBlogPost
@@ -11,11 +12,15 @@ const BlogItem = (props: Props) => {
         <div className="card my-4 mx-4 column">
             <div className="card-image">
                 <figure className="image ">
-                    <Img
-                        className="featured"
-                        fluid={props.item.featuredImage?.fluid!! as FluidObject}
-                        alt={props.item.title!!}
-                    />
+                    <Link to={`/blog/${props.item.slug}/`}>
+                        <Img
+                            className="featured"
+                            fluid={
+                                props.item.featuredImage?.fluid!! as FluidObject
+                            }
+                            alt={props.item.title!!}
+                        />
+                    </Link>
                 </figure>
             </div>
             <div className="card-content">
@@ -29,7 +34,10 @@ const BlogItem = (props: Props) => {
                 <div className="content">
                     {props.item.excerpt?.childMarkdownRemark?.excerpt}
                     <br />
-                    <time dateTime={props.item.publishedDate}>
+                    <time
+                        dateTime={props.item.publishedDate}
+                        className="text is-bold"
+                    >
                         {props.item.publishedDate}
                     </time>
                 </div>

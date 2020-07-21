@@ -39,27 +39,21 @@ const BlogPost: React.FC<Props> = ({ data }) => {
     return (
         <Layout>
             <SEO title="Blot Post" />
-            <Link to="/blog/">Visit the Blog Page</Link>
-            <div className="content">
-                <h1>{data?.contentfulBlogPost?.title}</h1>
-                <span className="meta">
-                    Posted on {data?.contentfulBlogPost?.publishedDate}
-                </span>
-                {data?.contentfulBlogPost?.featuredImage && (
-                    <Img
-                        className="featured"
-                        fluid={
-                            data.contentfulBlogPost.featuredImage
-                                .fluid as FluidObject
-                        }
-                        alt={data.contentfulBlogPost.title!!}
-                    />
-                )}
+
+            <div className="hero is-info is-medium">
+                <div className="hero-body">
+                    <h1 className="title">{data?.contentfulBlogPost?.title}</h1>
+                    <span className="subtitle">
+                        Posted on {data?.contentfulBlogPost?.publishedDate}
+                    </span>
+                </div>
+            </div>
+            <section className="container mx-6 my-6">
                 {documentToReactComponents(
                     data?.contentfulBlogPost?.body!!.json,
                     options
                 )}
-            </div>
+            </section>
         </Layout>
     )
 }
