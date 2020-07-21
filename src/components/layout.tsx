@@ -32,15 +32,21 @@ const Layout: React.FC = ({ children }) => {
             <footer className="footer">
                 <div className="content has-text-centered">
                     <p>
-                        <strong>Bulma</strong> by{" "}
-                        <a href="https://jgthms.com">Jeremy Thomas</a>. The
-                        source code is licensed
-                        <a href="http://opensource.org/licenses/mit-license.php">
-                            MIT
+                        <strong>Blog</strong> by{" "}
+                        <a
+                            href="https://www.ejazahmed.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Ejaz Ahmed
                         </a>
-                        . The website content is licensed{" "}
-                        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-                            CC BY NC SA 4.0
+                        . The source code is available at{" "}
+                        <a
+                            href="https://github.com/ejazahm3d/gatsby-blog-ts"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Github
                         </a>
                         .
                     </p>
