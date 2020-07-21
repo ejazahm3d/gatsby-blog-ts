@@ -5,7 +5,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import SEO from "../components/seo"
 import Img, { FluidObject } from "gatsby-image"
-import { ContentfulBlogPost } from "../../graphql-types"
+import { SingleBlogPostQuery } from "../../graphql-types"
 
 export const blogPost = graphql`
     query singleBlogPost($slug: String!) {
@@ -24,7 +24,7 @@ export const blogPost = graphql`
     }
 `
 
-interface Props extends PageProps<{ contentfulBlogPost: ContentfulBlogPost }> {}
+interface Props extends PageProps<SingleBlogPostQuery> {}
 
 const BlogPost: React.FC<Props> = ({ data }) => {
     const options = {
@@ -41,11 +41,11 @@ const BlogPost: React.FC<Props> = ({ data }) => {
             <SEO title="Blot Post" />
             <Link to="/blog/">Visit the Blog Page</Link>
             <div className="content">
-                <h1>{data.contentfulBlogPost.title}</h1>
+                <h1>{data?.contentfulBlogPost?.title}</h1>
                 <span className="meta">
-                    Posted on {data.contentfulBlogPost.publishedDate}
+                    Posted on {data?.contentfulBlogPost?.publishedDate}
                 </span>
-                {data.contentfulBlogPost.featuredImage && (
+                {data?.contentfulBlogPost?.featuredImage && (
                     <Img
                         className="featured"
                         fluid={
@@ -56,7 +56,7 @@ const BlogPost: React.FC<Props> = ({ data }) => {
                     />
                 )}
                 {documentToReactComponents(
-                    data.contentfulBlogPost.body!!.json,
+                    data?.contentfulBlogPost?.body!!.json,
                     options
                 )}
             </div>

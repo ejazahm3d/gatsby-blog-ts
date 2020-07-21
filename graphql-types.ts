@@ -4493,6 +4493,14 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
+export type TopFiveQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TopFiveQuery = { allContentfulBlogPost: { edges: Array<{ node: (
+        Pick<ContentfulBlogPost, 'title' | 'id' | 'slug' | 'publishedDate'>
+        & { featuredImage?: Maybe<{ fluid?: Maybe<GatsbyContentfulFluidFragment> }>, excerpt?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'excerpt'>> }> }
+      ) }> } };
+
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
